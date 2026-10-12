@@ -10,8 +10,10 @@
 
 mod pptx;
 mod zip;
+mod xlsx;
 
 pub use pptx::pptx;
+pub use xlsx::xlsx;
 pub use zip::Zip;
 
 /// A paragraph of a page.
