@@ -644,7 +644,6 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
             // Same for the width: the content must fill the whole panel, otherwise the rail
             // shrinks to its narrowest widget and the icons are no longer centred.
             let width = ui.available_width();
-            eprintln!("{width}");
             // Everything lives in a single vertical flow: when the window is too short
             // the rail scrolls instead of letting the two groups overlap.
             egui::ScrollArea::vertical()
