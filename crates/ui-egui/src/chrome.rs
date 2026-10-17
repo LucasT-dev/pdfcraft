@@ -655,7 +655,8 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                     // Top buttons, centred like the bottom cluster.
                     ui.vertical_centered(|ui| {
                         let mut rail_button = |ui: &mut egui::Ui, panel: RightPanel, icon: &str, tip: &str, has: bool| {
-                            let selected = app.right == Some(panel) && (app.mode == Mode::Read || app.docking.exposed(crate::docking::Panel::Inspector));
+                            let selected =
+                                app.right == Some(panel) && (app.mode == Mode::Read || app.docking.exposed(crate::docking::Panel::Inspector));
                             let r = icons::button(ui, icon, 34.0, selected, tl!(tip));
                             if has && !selected {
                                 let c = r.rect.right_top() + vec2(-8.0, 8.0);
