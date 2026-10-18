@@ -681,7 +681,6 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
         .exact_size(48.0)
         .frame(egui::Frame::NONE.fill(t.chrome).inner_margin(egui::Margin::symmetric(4, 8)).stroke(Stroke::new(1.0, t.divider)))
         .show(ui, |ui| {
-
             // Visible height of the panel, read BEFORE the ScrollArea: inside it,
             // the available height is unbounded along the scroll axis.
             let avail = ui.available_height();
@@ -699,8 +698,6 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                     ui.spacing_mut().item_spacing.y = 4.0;
                     // Top buttons, centred like the bottom cluster.
                     ui.vertical_centered(|ui| {
-
-
                         let mut rail_button = |ui: &mut egui::Ui, panel: RightPanel, icon: &str, tip: &str, has: bool| {
                             let selected = app.right == Some(panel) && (app.mode == Mode::Read || app.docking.exposed(crate::docking::Panel::Inspector));
                             let r = icons::button(ui, icon, 34.0, selected, tl!(tip));
@@ -739,11 +736,9 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
 
                     let view = &mut app.views[index];
                     let mut page_display = None;
-
                     let group = ui.scope(|ui| {
                         ui.spacing_mut().item_spacing.y = 2.0;
                         ui.vertical_centered(|ui| {
-
                             // 1. Current page field + total page count.
                             ui.label(egui::RichText::new(page_count.to_string()).font(theme::regular(11.0)).color(t.text_muted));
                             let page_input_id = view.page_input_id();
@@ -772,12 +767,10 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                                 .show(ui, |ui| ui.add(edit))
                                 .inner
                                 .on_hover_text(tl!("Current page — type a page number or label (such as iv) and press Enter"));
-                            if r.lost_focus() {
-                                if ui.input(|i| i.key_pressed(egui::Key::Enter)) {
+                            if r.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter)) {
                                     // A page label first (logical page numbers, as Acrobat), then a number.
                                     let typed = view.page_input.clone();
                                     view.go_to_typed(&typed, &labels);
-                                }
                             }
 
                             // 2. View history (back / forward), distinct from stepping to the
@@ -868,16 +861,14 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                             if icons::button(ui, "zoom-out", 32.0, false, &tip).clicked() {
                                 view.zoom_step(false);
                             }
-
                         })
                     });
                     // Real height of the cluster, stored so the spacer can use it on the next frame.
                     ui.data_mut(|d| d.insert_temp(bottom_id, group.response.rect.height()));
-
                     if let Some(id) = page_display {
                         app.execute(id);
                     }
-            });
+                });
         });
 }
 
