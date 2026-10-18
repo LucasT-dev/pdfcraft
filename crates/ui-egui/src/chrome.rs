@@ -699,7 +699,8 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                     // Top buttons, centred like the bottom cluster.
                     ui.vertical_centered(|ui| {
                         let mut rail_button = |ui: &mut egui::Ui, panel: RightPanel, icon: &str, tip: &str, has: bool| {
-                            let selected = app.right == Some(panel) && (app.mode == Mode::Read || app.docking.exposed(crate::docking::Panel::Inspector));
+                            let selected =
+                                app.right == Some(panel) && (app.mode == Mode::Read || app.docking.exposed(crate::docking::Panel::Inspector));
                             let r = icons::button(ui, icon, 34.0, selected, tl!(tip));
                             if has && !selected {
                                 let c = r.rect.right_top() + vec2(-8.0, 8.0);
@@ -768,9 +769,9 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                                 .inner
                                 .on_hover_text(tl!("Current page — type a page number or label (such as iv) and press Enter"));
                             if r.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter)) {
-                                    // A page label first (logical page numbers, as Acrobat), then a number.
-                                    let typed = view.page_input.clone();
-                                    view.go_to_typed(&typed, &labels);
+                                // A page label first (logical page numbers, as Acrobat), then a number.
+                                let typed = view.page_input.clone();
+                                view.go_to_typed(&typed, &labels);
                             }
 
                             // 2. View history (back / forward), distinct from stepping to the
