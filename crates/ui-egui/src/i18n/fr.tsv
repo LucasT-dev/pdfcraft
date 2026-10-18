@@ -48,7 +48,7 @@
 	Paste pages	Coller des pages
 	Fit visible	Ajuster au contenu visible
 	Marquee zoom	Zoom par sélection
-	Take a snapshot	Prendre un instantané
+	Take a snapshot	Prendre une capture d'écran
 	Column select	Sélection de colonne
 	Full screen mode	Mode plein écran
 	Read mode	Mode lecture
@@ -126,7 +126,7 @@
 	Accessibility Checker	Vérificateur d'accessibilité
 	Search	Rechercher
 	Compare	Comparer
-	Page thumbnails	Vignettes de page
+	Page thumbnails	Affichage des pages
 	Form fields	Champs de formulaire
 	Zoom out ({key})	Zoom arrière ({key})
 	Zoom in ({key})	Zoom avant ({key})
@@ -206,12 +206,12 @@
 	Removed {n} links	Liens retirés : {n}
 	Add Bates numbering…	Ajouter une numérotation Bates…
 	Add image…	Ajouter une image…
-	Redact text and images	Biffer du texte et des images
-	Redact pages…	Biffer des pages…
-	Find text and redact…	Rechercher du texte et biffer…
+	Redact text and images	Caviarder du texte et des images
+	Redact pages…	Caviarder des pages…
+	Find text and redact…	Rechercher du texte et Caviarder…
 	Redaction properties…	Propriétés de biffure…
-	Apply redactions…	Appliquer les biffures…
-	Clear redaction marks	Effacer les marques de biffure
+	Apply redactions…	Appliquer les caviardages…
+	Clear redaction marks	Effacer les marques de caviardages
 	Remove hidden information…	Retirer les informations masquées…
 	Sanitize document…	Assainir le document…
 	Field properties…	Propriétés du champ…
@@ -375,10 +375,10 @@
 	Advanced options	Options avancées
 	Encrypt with certificate	Chiffrer avec un certificat
 	Security properties	Propriétés de protection
-	Redact a PDF	Biffer un PDF
-	Redact	Biffer
-	Redact pages	Biffer des pages
-	Find text and redact	Rechercher du texte et biffer
+	Redact a PDF	Caviarder un PDF
+	Redact	Caviarder
+	Redact pages	Caviarder des pages
+	Find text and redact	Rechercher du texte et caviarder
 	Set properties	Définir les propriétés
 	Sanitize document	Assainir le document
 	Compress a PDF	Compresser un PDF
@@ -407,8 +407,8 @@
 	Use a certificate	Utiliser un certificat
 	Certificates	Certificats
 	Timestamp	Horodatage
-	Use print production	Utiliser la prépresse
-	Print production	Prépresse
+	Use print production	Utiliser la pré impression
+	Print production	imprimer la production
 	Output preview	Aperçu de la sortie
 	Preflight	Contrôle en amont
 	Convert colors	Convertir les couleurs
@@ -462,7 +462,7 @@
 	Preview	Aperçu
 	Edit fields	Modifier les champs
 	Try the form as people filling it in will see it	Essayez le formulaire tel que le verront les personnes qui le remplissent
-	Redact all	Tout biffer
+	Redact all	Appliquer le caviardage
 	Clear all	Tout effacer
 	Rotate page	Pivoter la page
 	Delete page	Supprimer la page
@@ -565,7 +565,7 @@
 	Thumbnails	Vignettes
 	Named Destinations	Destinations nommées
 	Color Spaces	Espaces colorimétriques
-	Shadings	Dégradés
+	Shadings	Ombre
 	Patterns (graphics objects)	Motifs (objets graphiques)
 	Extended Graphics States	États graphiques étendus
 	Embedded Files	Fichiers incorporés
@@ -665,7 +665,7 @@
 	Show a field	Afficher un champ
 	Hide a field	Masquer un champ
 	Submit a form	Envoyer un formulaire
-	Fields to reset (comma-separated; empty: all)	Champs à réinitialiser (séparés par des virgules ; vide : tous)
+	Fields to reset (comma-separated; empty: all)	Champs à réinitialiser (séparés par des virgules; vide: tous)
 	Print, NextPage, PrevPage, FirstPage or LastPage	Print, NextPage, PrevPage, FirstPage ou LastPage
 	Field names (comma-separated)	Noms de champs (séparés par des virgules)
 	URL to submit to	URL d'envoi
@@ -1218,8 +1218,8 @@
 	Removed 1 hidden item. Save to remove them from the file.	1 élément masqué retiré. Enregistrez pour le supprimer du fichier.
 	Removed {n} hidden items. Save to remove them from the file.	{n} éléments masqués retirés. Enregistrez pour les supprimer du fichier.
 	Document sanitized. Save to finish: saving rewrites the whole file.	Document assaini. Enregistrez pour terminer : l'enregistrement réécrit tout le fichier.
-	Applied 1 redaction mark. Save to remove the content from the file.	1 marque de biffure appliquée. Enregistrez pour supprimer le contenu du fichier.
-	Applied {n} redaction marks. Save to remove the content from the file.	{n} marques de biffure appliquées. Enregistrez pour supprimer le contenu du fichier.
+	Applied 1 redaction mark. Save to remove the content from the file.	1 marque de caviardage appliquée. Enregistrez pour supprimer le contenu du fichier.
+	Applied {n} redaction marks. Save to remove the content from the file.	{n} marques de caviardage appliquées. Enregistrez pour supprimer le contenu du fichier.
 	JavaScript Console	Console JavaScript
 	JavaScript is turned off (Preferences ▸ JavaScript).	JavaScript est désactivé (Préférences > JavaScript).
 	Output appears here.	La sortie apparaît ici.
@@ -1596,7 +1596,7 @@
 	1 file done	1 fichier terminé
 	{n} files done	{n} fichiers terminés
 	The selected area has been copied ({w} × {h} pixels)	La zone sélectionnée a été copiée ({w} × {h} pixels)
-	Couldn't take the snapshot: {e}	Impossible de prendre l'instantané : {e}
+	Couldn't take the snapshot: {e}	Impossible de prendre une capture d'écran : {e}
 	Couldn't recover {name}: {e}	Impossible de récupérer {name} : {e}
 	The document now conforms to {level}; save it to keep the changes	Le document est maintenant conforme à {level} ; enregistrez-le pour conserver les modifications
 	Fixed what could be fixed; 1 problem remains	Ce qui pouvait l'être a été corrigé ; il reste 1 problème
@@ -1876,7 +1876,7 @@
 	Add image	Ajouter une image
 	Edit content	Modifier le contenu
 	Delete content	Supprimer le contenu
-	Remove redaction marks	Retirer les marques de biffure
+	Remove redaction marks	Retirer les marques de caviardage
 	Add link	Ajouter un lien
 	Change link properties	Modifier les propriétés du lien
 	Delete link	Supprimer le lien
@@ -1967,13 +1967,13 @@
 	Cut and stack	Couper et empiler
 	Default workspace mode	Mode d'espace de travail par défaut
 	Documents and view	Documents et affichage
-	Open email app	Ouvrir l'application de courrier
+	Open email app	Ouvrir l'application de boîte mail
 	Open link	Ouvrir le lien
 	Open this web page?	Ouvrir cette page web ?
 	Scripts run in a sandbox without file or network access. A script that asks to open a web page needs your permission first. With JavaScript off, Acrobat's standard format, validate and calculate functions still work.	Les scripts s'exécutent dans un bac à sable, sans accès aux fichiers ni au réseau. Un script qui demande d'ouvrir une page web a d'abord besoin de votre autorisation. Si JavaScript est désactivé, les fonctions standard de format, de validation et de calcul d'Acrobat continuent de fonctionner.
 	Sign yourself	Signer soi-même
 	Used when opening PDFs. An explicit launch or control mode takes precedence for the session.	Utilisé à l'ouverture des PDF. Un mode de lancement ou de contrôle explicite a priorité pour la session.
-	Write this email?	Écrire ce courriel ?
+	Write this email?	Écrire cet e-mail ?
 	{who} in this document wants to open this address in your browser:	{who} dans ce document veut ouvrir cette adresse dans votre navigateur :
 	{who} in this document wants to open your email app with this address:	{who} dans ce document veut ouvrir votre application de courrier avec cette adresse :
 	This web address mixes letters from different alphabets, a common way to imitate another site's name.	Cette adresse web mélange des lettres d'alphabets différents, un moyen courant d'imiter le nom d'un autre site.
