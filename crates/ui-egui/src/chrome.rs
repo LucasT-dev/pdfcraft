@@ -729,19 +729,20 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                     let bottom_id = ui.id().with("rail_bottom_h");
                     let bottom_h: f32 = ui.data(|d| d.get_temp(bottom_id)).unwrap_or(380.0);
                     let top_used = ui.min_rect().height();
-                    let gap = (avail - top_used - bottom_h).max(12.0);
+                    // egui inserts `item_spacing.y` before the spacer and before the cluster.
+                    let spacing = ui.spacing().item_spacing.y;
+                    let gap = (avail - top_used - bottom_h - 2.0 * spacing).max(12.0);
                     ui.add_space(gap);
 
                     // Page navigation cluster at the bottom (as in Acrobat's rail).
-                    // Drawn top-down: the order is the reverse of the old `bottom_up` layout.
+                    // Drawn top-down, in the same visual order as the old `bottom_up` layout.
 
                     let view = &mut app.views[index];
                     let mut page_display = None;
                     let group = ui.scope(|ui| {
                         ui.spacing_mut().item_spacing.y = 2.0;
                         ui.vertical_centered(|ui| {
-                            // 1. Current page field + total page count.
-                            ui.label(egui::RichText::new(page_count.to_string()).font(theme::regular(11.0)).color(t.text_muted));
+                            // 1. Page field, followed by the total number of pages (below).
                             let page_input_id = view.page_input_id();
                             // Consume replacement selection once, including when the editor has lost focus.
                             let reselect = std::mem::take(&mut view.page_input_reselect);
@@ -773,13 +774,12 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                                 let typed = view.page_input.clone();
                                 view.go_to_typed(&typed, &labels);
                             }
+                            ui.label(egui::RichText::new(page_count.to_string()).font(theme::regular(11.0)).color(t.text_muted));
 
-                            // 2. View history (back / forward), distinct from stepping to the
-                            //    adjacent page, and belonging to this tab. Buttons are disabled
-                            //    when the corresponding stack is empty.
+                            // 2. Historique de vue : Previous view au-dessus, Next view en dessous.
                             for (forward, icon, label, shortcut, enabled) in [
-                                (true, "chevron-right", tl!("Next view"), crate::commands::NEXT_VIEW, !view.forward.is_empty()),
                                 (false, "chevron-left", tl!("Previous view"), crate::commands::PREV_VIEW, !view.back.is_empty()),
+                                (true, "chevron-right", tl!("Next view"), crate::commands::NEXT_VIEW, !view.forward.is_empty()),
                             ] {
                                 let tip = format!("{label} ({})", crate::commands::shortcut_label(ui.ctx(), shortcut));
                                 if ui.add_enabled_ui(enabled, |ui| icons::button(ui, icon, 30.0, false, &tip)).inner.clicked() {
@@ -787,14 +787,15 @@ pub fn right_rail(app: &mut PdfCraftApp, ui: &mut egui::Ui) {
                                 }
                             }
 
-                            // 3. Previous / next page.
-                            ui.add_space(6.0);
-                            if icons::button(ui, "chevron-down", 30.0, false, tl!("Next page")).clicked() {
-                                view.step_page(true);
-                            }
+                            // 3. Previous page above, Next page below, followed by a 6 px space
+                            //    before the zoom field
                             if icons::button(ui, "chevron-up", 30.0, false, tl!("Previous page")).clicked() {
                                 view.step_page(false);
                             }
+                            if icons::button(ui, "chevron-down", 30.0, false, tl!("Next page")).clicked() {
+                                view.step_page(true);
+                            }
+                            ui.add_space(6.0);
 
                             // 4. Zoom percentage field. The text being typed is kept in egui's
                             //    temp memory (`draft`) so it survives frames while focused and is

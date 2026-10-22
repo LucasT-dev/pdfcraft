@@ -1407,6 +1407,10 @@ fn sidebar_collapse_and_resize_preserves_scroll_position() {
     let rect_after = v.page_screen_rect(2).expect("page 2 still on screen");
     let vp_after = v.viewport_rect();
     let rel_y_after = rect_after.min.y - vp_after.min.y;
+
+    // One-pixel tolerance: the fit-width zoom is recomputed when the panel collapses,
+    // then the page position is rounded to the pixel grid. With the narrower rail
+    // (side margin 6 -> 4 px) that rounding can flip by exactly 1 px.
     assert!((rel_y_after - rel_y_before).abs() <= 1.0, "page 2 scroll position preserved: before {rel_y_before}, after {rel_y_after}");
 
     // Reopen bookmarks panel: available width decreases, so fit-width zoom decreases.
